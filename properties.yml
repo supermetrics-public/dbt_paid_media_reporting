@@ -1,0 +1,13 @@
+models:
+  sm_templates:
+    dbt:
+      cri_reach:
+        columns:
+          - adsets_id:
+              type: string
+          - adsets_name:
+              type: string
+          - unique_impressions:
+              type: number
+          - reach:
+              type: number
