@@ -1,4 +1,5 @@
 {{ config(materialized = 'view') }}
+
 with display_video as
 
 (
@@ -23,7 +24,7 @@ select date as date,
     cost as cost,
     impressions as impressions
     
-from "SM_TEMPLATES"."DBT"."GOOGLEADS_BASE_DISPLAY_VIDEO"
+from GOOGLEADS_BASE_DISPLAY_VIDEO
 where campaign_type in ('Video', 'Display')
   
 ),
@@ -53,7 +54,7 @@ select date as date,
     cost as cost,
     impressions as impressions
     
-from "SM_TEMPLATES"."DBT"."GOOGLEADS_BASE_SEARCH"
+from GOOGLEADS_BASE_SEARCH
 where campaign_type in ('Search')
 
 ),
@@ -82,7 +83,7 @@ select date as date,
     cost as cost,
     impressions as impressions
     
-from "SM_TEMPLATES"."DBT"."GOOGLEADS_BASE_PERFORMANCE_MAX"
+from GOOGLEADS_BASE_PERFORMANCE_MAX
 where campaign_type in ('Performance Max')
   
 )

@@ -18,6 +18,6 @@ select
     t1.COST, 
     t1.IMPRESSIONS,
     t2.FREQUENCY
-from SM_TEMPLATES.DBT.PIA_BASE t1
-left join SM_TEMPLATES.DBT.PIA_REACH t2
+from PIA_BASE t1
+left join PIA_REACH t2
 where t1.campaign_id = t2.campaign_id AND date is not null
