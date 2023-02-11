@@ -36,3 +36,14 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+
+vars:
+  amazon_ads_enabled: False # by default this is assumed to be True
+  bing_ads_enabled: False # by default this is assumed to be True
+  criteo_ads_enabled: False # by default this is assumed to be True
+  google_ads_enabled: False # by default this is assumed to be True
+  pinterest_ads_enabled: False # by default this is assumed to be True
+  linkedin_ads_enabled: False # by default this is assumed to be True
+  meta_ads_enabled: False # by default this is assumed to be True
+  snap_ads_enabled: False # by default this is assumed to be True
+  tiktok_ads_enabled: False # by default this is assumed to be True

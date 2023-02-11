@@ -1,5 +1,8 @@
 {{ config(materialized = 'view') }}
 
+{% if var('amazon_ads_enabled') == True %}
+
+
 with product as
 (
 select date as date,
@@ -52,3 +55,27 @@ from AMAZON_BASE_SEARCH
 select * from product
 union all
 select * from search
+
+{% else %}
+
+select NULL as date,
+    NULL as account_name,
+    NULL as currency,
+    NULL as account_id,
+    NULL as campaign_name,
+    'Amazon Ads' as PLATFORM_LEVEL_1, 
+    'Amazon Ads' as PLATFORM_LEVEL_2,
+    NULL as campaign_status,
+    NULL as campaign_type,
+    NULL as campaign_id,
+    NULL as ad_group_name,
+    NULL as ad_group_id,
+    NULL as ad_name,
+    NULL as ad_id,
+    NULL as keyword_name,
+    NULL as keyword_id,
+    NULL as clicks,
+    NULL as cost,
+    NULL as impressions
+    
+{% endif %}
