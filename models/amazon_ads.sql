@@ -1,3 +1,5 @@
+{{ config(materialized = 'view') }}
+
 with product as
 (
 select date as date,
@@ -19,7 +21,7 @@ select date as date,
     clicks as clicks,
     cost as cost,
     impressions as impressions
-from "SM_TEMPLATES"."DBT"."AMAZON_BASE_PRODUCT"
+from AMAZON_BASE_PRODUCT
 ),
 
 search as
@@ -43,7 +45,7 @@ select date as date,
     clicks as clicks,
     cost as cost,
     impressions as impressions
-from "SM_TEMPLATES"."DBT"."AMAZON_BASE_SEARCH"
+from AMAZON_BASE_SEARCH
   
 )
 

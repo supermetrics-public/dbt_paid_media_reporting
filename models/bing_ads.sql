@@ -19,4 +19,4 @@ select date as date,
     clicks as clicks,
     SPEND as cost,
     impressions as impressions
-from SM_TEMPLATES.DBT.BINGADS_BASE
+from BINGADS_BASE
