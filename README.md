@@ -24,7 +24,11 @@ The following data sources are included in the models:
 
 Log into your account or start a free trial at [Supermetrics.com](https://team.supermetrics.com). Configure your Snowflake destination and create some data transfers to move data to a single schema in Snowflake.
 
-When selecting the schema to use for your transfer, please choose the option labelled "DBT".
+Please note that Supermetrics schemas are different than database schemas. Supermetrics schemas determine the tables that will be built in your target schema. Your target schema is specified when specifying your destination on the team site.
+
+In your target database, it is recommended to create a schema specifically for Supermetrics data transfers. You will specify the name of this schema later in Step 3.
+
+When selecting the Supermetrics schema to use for your transfer, please choose the option labelled "DBT".
 
 ## Step 2: Install the package into your dbt project
 
@@ -34,7 +38,6 @@ Add this package to your `packages.yml`. Currently, it is only available on GitH
 packages:
 	- git: "https://github.com/supermetrics-public/dbt_paid_media_reporting.git"
 	  revision: 0.0.1
-
 ```
 
 Once you've made the entry, run `dbt deps`. This will install the package from GitHub.
@@ -70,7 +73,6 @@ vars:
   paid_media_reporting__paid_social_enabled: True
   paid_media_reporting__paid_search_enabled: True
   paid_media_reporting__paid_media_enabled: True
-
 ```
 
 
