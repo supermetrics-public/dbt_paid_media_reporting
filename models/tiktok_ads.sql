@@ -21,6 +21,6 @@ SELECT
     t1.IMPRESSIONS,
     t2.REACH,
     t2.FREQUENCY
-FROM TIK_BASE t1
-LEFT JOIN TIK_REACH t2
+FROM {{var('paid_media_reporting__supermetrics_schema')}}.TIK_BASE t1
+LEFT JOIN {{var('paid_media_reporting__supermetrics_schema')}}.TIK_REACH t2
 WHERE t1.campaign_id = t2.campaign_id

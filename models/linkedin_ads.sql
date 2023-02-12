@@ -20,7 +20,7 @@ select
     t1.SPEND AS COST, 
     t1.IMPRESSIONS,
     t2.REACH
-from LINKEDINADS_BASE as t1
-LEFT JOIN LINKEDINADS_REACH as t2
+from {{var('paid_media_reporting__supermetrics_schema')}}.LINKEDINADS_BASE as t1
+LEFT JOIN {{var('paid_media_reporting__supermetrics_schema')}}.LINKEDINADS_REACH as t2
 WHERE t1.campaign_group_name = t2.campaign_group_name
 

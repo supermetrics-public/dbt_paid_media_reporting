@@ -13,14 +13,14 @@ WITH base AS (
   CLICKS, 
   COST, 
   IMPRESSIONS
-  FROM CRI_BASE
+  FROM {{var('paid_media_reporting__supermetrics_schema')}}.CRI_BASE
 ),
 reach AS (
   SELECT ADSET_ID AS CAMPAIGN_ID, 
   ADSET_NAME AS CAMPAIGN_NAME, 
   UNIQUE_IMPRESSIONS AS AUDIENCE_SIZE, 
   CAST(UNIQUE_IMPRESSIONS * REACH AS INTEGER) AS REACH
-  FROM CRI_REACH
+  FROM {{var('paid_media_reporting__supermetrics_schema')}}.CRI_REACH
 )
 SELECT 
   base.CURRENCY, 

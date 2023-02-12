@@ -21,6 +21,6 @@ SELECT
     t1.IMPRESSIONS,
     t2.REACH,
     t2.FREQUENCY
-FROM FBADS_BASE as t1
-LEFT JOIN FBADS_REACH as t2
+FROM {{var('paid_media_reporting__supermetrics_schema')}}.FBADS_BASE as t1
+LEFT JOIN {{var('paid_media_reporting__supermetrics_schema')}}.FBADS_REACH as t2
 WHERE t1.campaign_id = t2.campaign_id

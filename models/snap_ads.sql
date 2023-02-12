@@ -20,6 +20,6 @@ select distinct
     t1.COST,
     t1.IMPRESSIONS,
     t2.FREQUENCY
-from SNAPCHT_BASE t1
-left join SNAPCHT_REACH t2
+from {{var('paid_media_reporting__supermetrics_schema')}}.SNAPCHT_BASE t1
+left join {{var('paid_media_reporting__supermetrics_schema')}}.SNAPCHT_REACH t2
 WHERE t1.campaign_id = t2.campaign_id

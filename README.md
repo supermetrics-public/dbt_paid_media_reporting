@@ -26,7 +26,7 @@ Log into your account or start a free trial at [Supermetrics.com](https://team.s
 
 When selecting the schema to use for your transfer, please choose the option labelled "DBT".
 
-## Step 2: Clone the repo into your dbt project
+## Step 2: Install the package into your dbt project
 
 Add this package to your `packages.yml`. Currently, it is only available on GitHub. The entry in your `packages.yml` file should look like:
 
@@ -37,13 +37,22 @@ packages:
 
 ```
 
+Once you've made the entry, run `dbt deps`. This will install the package from GitHub.
+
 ## Step 3: Configure your profile and schemas
 
-This package will search for the source tables based on the schema specified in your profile. Setting a custom schema is not currently supported.
+The package will automatically build models in the target schema specified in your profile. The schema should be the same schema that you transferred data to in Step 1. This may be the same schema as your target schema, but it is recommended to have separate schemas storing your source tables and target views. 
+
+Tell dbt which schema your Supermetrics data by adding the following variable to your `dbt_project.yml`:
+
+```
+vars:
+  paid_media_reporting__supermetrics_schema
+```
 
 ## Step 4: Configure your data sources
 
-In your `dbt_project.yml` please ensure that you've properly enabled or disabled the datasources you expect to use. The model build will fail if this is not specified correctly. A sample is provided in this package.
+In your `dbt_project.yml`, add the following variables. Please ensure that you've properly enabled or disabled the datasources you expect to use. The model build will fail if this is not specified correctly.
 
 This package uses the following variables:
 

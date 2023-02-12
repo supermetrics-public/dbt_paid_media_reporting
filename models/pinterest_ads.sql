@@ -20,6 +20,6 @@ select
     t1.COST, 
     t1.IMPRESSIONS,
     t2.FREQUENCY
-from PIA_BASE t1
-left join PIA_REACH t2
+from {{var('paid_media_reporting__supermetrics_schema')}}.PIA_BASE t1
+left join {{var('paid_media_reporting__supermetrics_schema')}}.PIA_REACH t2
 where t1.campaign_id = t2.campaign_id AND date is not null
