@@ -1,4 +1,6 @@
 {{ config(materialized = 'view') }}
+{{ config(enabled = var('paid_media_reporting__snap_ads_enabled')) }}
+
 
 select distinct
     t1.ACCOUNT_ID, 

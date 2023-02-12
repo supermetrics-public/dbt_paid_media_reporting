@@ -1,4 +1,6 @@
 {{ config(materialized = 'view') }}
+{{ config(enabled = var('paid_media_reporting__criteo_ads_enabled')) }}
+
 
 {% if var('criteo_ads_enabled') == True %}
 

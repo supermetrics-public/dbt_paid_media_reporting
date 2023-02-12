@@ -1,7 +1,5 @@
 {{ config(materialized = 'view') }}
 
-{% if var('amazon_ads_enabled') == True %}
-
 
 with product as
 (
@@ -56,7 +54,8 @@ select * from product
 union all
 select * from search
 
-{% else %}
+
+/*
 
 select NULL as date,
     NULL as account_name,
@@ -77,5 +76,5 @@ select NULL as date,
     NULL as clicks,
     NULL as cost,
     NULL as impressions
-    
-{% endif %}
+
+*/

@@ -1,4 +1,6 @@
 {{ config(materialized = 'view') }}
+{{ config(enabled = var('paid_media_reporting__meta_ads_enabled')) }}
+
 
 SELECT 
     t1.PROFILE_ID AS ACCOUNT_ID, 

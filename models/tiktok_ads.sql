@@ -1,4 +1,6 @@
 {{ config(materialized = 'view') }}
+{{ config(enabled = var('paid_media_reporting__tiktok_ads_enabled')) }}
+
 
 SELECT
     t1.AD_GROUP_ID,

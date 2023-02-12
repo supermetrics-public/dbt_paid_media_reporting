@@ -1,4 +1,6 @@
 {{ config(materialized = 'view') }}
+{{ config(enabled = var('paid_media_reporting__paid_social_enabled')) }}
+
 
 select ACCOUNT_ID, ACCOUNT_NAME, AD_ID, AD_NAME, CAMPAIGN_ID, CAMPAIGN_NAME, AD_GROUP_ID, AD_GROUP_NAME, CAMPAIGN_TYPE, CAMPAIGN_STATUS, CURRENCY, DATE, PLATFORM_LEVEL_1, PLATFORM_LEVEL_2, CLICKS, COST, IMPRESSIONS, REACH, FREQUENCY
 from  tiktok_ads
