@@ -20,4 +20,4 @@ select date as date,
     clicks as clicks,
     SPEND as cost,
     impressions as impressions
-from BINGADS_BASE
+from {{var('paid_media_reporting__supermetrics_schema')}}.BINGADS_BASE

@@ -22,7 +22,7 @@ select date as date,
     clicks as clicks,
     cost as cost,
     impressions as impressions
-from AMAZON_BASE_PRODUCT
+from {{var('paid_media_reporting__supermetrics_schema')}}.AMAZON_BASE_PRODUCT
 ),
 
 search as
@@ -46,7 +46,7 @@ select date as date,
     clicks as clicks,
     cost as cost,
     impressions as impressions
-from AMAZON_BASE_SEARCH
+from {{var('paid_media_reporting__supermetrics_schema')}}.AMAZON_BASE_SEARCH
   
 )
 

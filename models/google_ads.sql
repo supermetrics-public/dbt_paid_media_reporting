@@ -25,7 +25,7 @@ select date as date,
     cost as cost,
     impressions as impressions
     
-from GOOGLEADS_BASE_DISPLAY_VIDEO
+from {{var('paid_media_reporting__supermetrics_schema')}}.GOOGLEADS_BASE_DISPLAY_VIDEO
 where campaign_type in ('Video', 'Display')
   
 ),
@@ -55,7 +55,7 @@ select date as date,
     cost as cost,
     impressions as impressions
     
-from GOOGLEADS_BASE_SEARCH
+from {{var('paid_media_reporting__supermetrics_schema')}}.GOOGLEADS_BASE_SEARCH
 where campaign_type in ('Search')
 
 ),
@@ -84,7 +84,7 @@ select date as date,
     cost as cost,
     impressions as impressions
     
-from GOOGLEADS_BASE_PERFORMANCE_MAX
+from {{var('paid_media_reporting__supermetrics_schema')}}.GOOGLEADS_BASE_PERFORMANCE_MAX
 where campaign_type in ('Performance Max')
   
 )
