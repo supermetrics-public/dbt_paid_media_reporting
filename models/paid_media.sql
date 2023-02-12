@@ -4,6 +4,7 @@
 
 {% set usable_models = [
     'paid_social',
+    'paid_search',
     'google_ads',
     'amazon_ads',
     'criteo_ads',] %}
@@ -21,6 +22,18 @@ paid_social as
 (
 SELECT ACCOUNT_ID, ACCOUNT_NAME, AD_ID, AD_NAME, CAMPAIGN_ID, CAMPAIGN_NAME, AD_GROUP_ID, AD_GROUP_NAME, CAMPAIGN_TYPE, CAMPAIGN_STATUS, CURRENCY, DATE, PLATFORM_LEVEL_1, PLATFORM_LEVEL_2, NULL AS KEYWORD_NAME, NULL AS KEYWORD_ID, CLICKS, COST, IMPRESSIONS, REACH, FREQUENCY
 FROM {{ref('paid_social')}}
+),
+
+{% endif %}
+
+{% if var('paid_media_reporting__paid_search_enabled') == True %}
+
+
+paid_search as
+
+(
+SELECT ACCOUNT_ID, ACCOUNT_NAME, NULL as AD_ID, NULL as AD_NAME, CAMPAIGN_ID, CAMPAIGN_NAME, AD_GROUP_ID, AD_GROUP_NAME, CAMPAIGN_TYPE, CAMPAIGN_STATUS, CURRENCY, DATE, PLATFORM_LEVEL_1, PLATFORM_LEVEL_2, KEYWORD_NAME, KEYWORD_ID, CLICKS, COST, IMPRESSIONS, NULL as REACH, NULL as FREQUENCY
+FROM {{ref('paid_search')}}
 ),
 
 {% endif %}
