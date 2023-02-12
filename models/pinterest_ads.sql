@@ -1,5 +1,4 @@
 {{ config(materialized = 'view') }}
-{{ config(enabled = var('paid_media_reporting__pinterest_ads_enabled')) }}
 
 
 select

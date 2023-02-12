@@ -1,5 +1,4 @@
 {{ config(materialized = 'view') }}
-{{ config(enabled = var('paid_media_reporting__bing_ads_enabled')) }}
 
 
 select date as date,

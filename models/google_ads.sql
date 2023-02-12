@@ -1,5 +1,4 @@
 {{ config(materialized = 'view') }}
-{{ config(enabled = var('paid_media_reporting__google_ads_enabled')) }}
 
 
 with display_video as

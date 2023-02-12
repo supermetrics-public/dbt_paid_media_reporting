@@ -1,5 +1,4 @@
 {{ config(materialized = 'view') }}
-{{ config(enabled = var('paid_media_reporting__linkedin_ads_enabled')) }}
 
 
 {% if var('amazon_ads_enabled') == True %}
