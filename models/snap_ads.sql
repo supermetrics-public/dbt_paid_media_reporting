@@ -1,5 +1,6 @@
 {{ config(materialized = 'view') }}
 
+
 select distinct
     t1.ACCOUNT_ID, 
     t1.ACCOUNT_NAME, 

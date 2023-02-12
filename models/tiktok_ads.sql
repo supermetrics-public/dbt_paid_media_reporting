@@ -1,5 +1,6 @@
 {{ config(materialized = 'view') }}
 
+
 SELECT
     t1.AD_GROUP_ID,
     t1.AD_GROUP_NAME, 

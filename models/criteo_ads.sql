@@ -1,7 +1,5 @@
 {{ config(materialized = 'view') }}
 
-{% if var('criteo_ads_enabled') == True %}
-
 
 WITH base AS (
   SELECT CURRENCY, 
@@ -41,21 +39,3 @@ SELECT
 FROM base
 LEFT JOIN reach
 ON base.CAMPAIGN_ID = reach.CAMPAIGN_ID
-
-{% else %}
-
-select NULL as CURRENCY, 
-  NULL as CAMPAIGN_TYPE, 
-  NULL as CAMPAIGN_ID, 
-  NULL as CAMPAIGN_NAME, 
-  NULL as CAMPAIGN_STATUS, 
-  NULL as ACCOUNT_ID, 
-  NULL as ACCOUNT_NAME, 
-  NULL as DATE, 
-  NULL as CLICKS, 
-  NULL as COST, 
-  NULL as IMPRESSIONS, 
-  NULL as AUDIENCE_SIZE, 
-  NULL as REACH
-    
-{% endif %}

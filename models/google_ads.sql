@@ -1,5 +1,6 @@
 {{ config(materialized = 'view') }}
 
+
 with display_video as
 
 (

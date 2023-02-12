@@ -1,5 +1,6 @@
 {{ config(materialized = 'view') }}
 
+
 select date as date,
     ACCOUNT_NAME as account_name,
     NULL as currency,

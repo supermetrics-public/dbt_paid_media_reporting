@@ -1,4 +1,6 @@
 {{ config(materialized = 'view') }}
+
+
 select
     t1.ACCOUNT_ID, 
     t1.ACCOUNT_NAME, 

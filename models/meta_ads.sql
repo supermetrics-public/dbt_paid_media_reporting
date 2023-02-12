@@ -1,5 +1,6 @@
 {{ config(materialized = 'view') }}
 
+
 SELECT 
     t1.PROFILE_ID AS ACCOUNT_ID, 
     t1.PROFILE AS ACCOUNT_NAME,

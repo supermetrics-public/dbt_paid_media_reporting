@@ -1,7 +1,5 @@
 {{ config(materialized = 'view') }}
 
-{% if var('amazon_ads_enabled') == True %}
-
 
 select 
     t1.DATE, 
@@ -26,26 +24,3 @@ from LINKEDINADS_BASE as t1
 LEFT JOIN LINKEDINADS_REACH as t2
 WHERE t1.campaign_group_name = t2.campaign_group_name
 
-{% else %}
-
-select 
-    NULL as DATE, 
-    NULL as ACCOUNT_NAME, 
-    NULL AS CURRENCY, 
-    NULL as ACCOUNT_ID, 
-    NULL AS CAMPAIGN_NAME, 
-    'LinkedIn' as PLATFORM_LEVEL_1, 
-    'LinkedIn' as PLATFORM_LEVEL_2, 
-    NULL AS CAMPAIGN_TYPE, 
-    NULL AS CAMPAIGN_STATUS, 
-    NULL AS CAMPAIGN_ID, 
-    NULL AS AD_GROUP_NAME, 
-    NULL AS AD_GROUP_ID, 
-    NULL AS AD_NAME, 
-    NULL AS AD_ID, 
-    NULL as CLICKS, 
-    NULL AS COST, 
-    NULL as IMPRESSIONS,
-    NULL as REACH
-
-{% endif %}

@@ -28,18 +28,41 @@ When selecting the schema to use for your transfer, please choose the option lab
 
 ## Step 2: Clone the repo into your dbt project
 
-Run the following commands to clone this package into your dbt project:
-`git clone https://github.com/supermetrics-public/dbt_paid_media_reporting.git`
+Add this package to your `packages.yml`. Currently, it is only available on GitHub. The entry in your `packages.yml` file should look like:
 
-## Step 3: Configure your profile
+```
+packages:
+	- git: "https://github.com/supermetrics-public/dbt_paid_media_reporting.git"
+	  revision: 0.0.1
 
-Snowflake requires a profile to be configured. Please ensure that you have a schema selected in your profile. The Supermetrics package will be looking for a profile called `sm_dbt`.
+```
+
+## Step 3: Configure your profile and schemas
+
+This package will search for the source tables based on the schema specified in your profile. Setting a custom schema is not currently supported.
 
 ## Step 4: Configure your data sources
 
 In your `dbt_project.yml` please ensure that you've properly enabled or disabled the datasources you expect to use. The model build will fail if this is not specified correctly. A sample is provided in this package.
 
-Note: at this time, disabling data sources is only avilable for Amazon Ads, Criteo and LinkedIn ads. All other sources are considered required for the model to function correcly.
+This package uses the following variables:
+
+```
+vars:
+  paid_media_reporting__amazon_ads_enabled: True
+  paid_media_reporting__bing_ads_enabled: True
+  paid_media_reporting__criteo_ads_enabled: True 
+  paid_media_reporting__google_ads_enabled: True
+  paid_media_reporting__pinterest_ads_enabled: True  
+  paid_media_reporting__linkedin_ads_enabled: True
+  paid_media_reporting__meta_ads_enabled: True
+  paid_media_reporting__snap_ads_enabled: True
+  paid_media_reporting__tiktok_ads_enabled: True 
+  paid_media_reporting__paid_social_enabled: True
+  paid_media_reporting__paid_search_enabled: True
+  paid_media_reporting__paid_media_enabled: True
+
+```
 
 
 ## Step 5: dbt run
